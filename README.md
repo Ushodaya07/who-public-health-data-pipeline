@@ -167,6 +167,8 @@ kedro run --pipeline who_data
 ---
 
 ## 👨‍💻 Author
-
-**Dasari Ushodaya**  
+**Ushodaya Royal**
 GitHub: https://github.com/Ushodaya07  
+M.Tech – Artificial Intelligence & Machine Learning
+(In Collaboration with LTIMindtree)
+Vellore Institute of Technology, Vellore
