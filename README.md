@@ -134,15 +134,15 @@ cd who-public-health-data-pipeline/who-outbreak-pipeline
 python -m venv .venv
 source .venv/Scripts/activate
 ```
-###3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
 ```bash
 pip install -e .
 ```
-###4️⃣ Run Kedro Pipeline
+### 4️⃣ Run Kedro Pipeline
 ```bash
 kedro run
 ```
-##Run a specific pipeline:
+### Run a specific pipeline:
 ```bash
 kedro run --pipeline who_data
 ```
