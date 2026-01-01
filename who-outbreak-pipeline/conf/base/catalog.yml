@@ -1,0 +1,138 @@
+# =======================================================================
+# WHO OUTBREAK DATA ENGINEERING AND PREDICTION SYSTEM
+# CLEANED CATALOG FILE
+# =======================================================================
+
+# === Raw WHO Dataset (from API fetch) ===
+who_combined:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/who_combined.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+  load_args:
+    encoding: "utf-8"
+
+# === Cleaned Data ===
+who_clean_data:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/who_clean.parquet
+
+# === Feature Engineered Data ===
+who_feature_data:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/who_features.parquet
+
+
+# ======================================================================
+# Train/Test Split
+# ======================================================================
+
+train_df:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/train_df.parquet
+
+test_df:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/test_df.parquet
+
+
+# ======================================================================
+# 🔮 FUTURE DATA NODES
+# ======================================================================
+
+who_future_raw:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/who_future_raw.parquet
+
+who_future_clean:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/who_future_clean.parquet
+
+who_future_features:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/who_future_features.parquet
+
+who_future_predictions:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_output/who_future_predictions.parquet
+  versioned: True
+
+
+# ======================================================================
+# Aggregated Region Data
+# ======================================================================
+
+who_aggregated_data:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/who_agg.parquet
+
+
+# ======================================================================
+# Model Artifacts
+# ======================================================================
+
+who_model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/who_rf_model.pkl
+  versioned: False
+
+# NEW — REQUIRED for future prediction alignment
+who_model_columns:
+  type: json.JSONDataset
+  filepath: data/06_models/who_model_columns.json
+  versioned: False
+
+who_model_info:
+  type: json.JSONDataset
+  filepath: data/06_models/who_model_info.json
+  versioned: False
+
+
+# ======================================================================
+# Predictions (Validation/Test predictions)
+# ======================================================================
+
+who_predictions:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_output/who_predictions.parquet
+  versioned: True
+
+
+# ======================================================================
+# Reporting Outputs
+# ======================================================================
+
+who_summary_country:
+  type: pandas.CSVDataset
+  filepath: data/07_reporting/who_summary_country.csv
+  save_args:
+    index: false
+    encoding: utf-8
+  load_args:
+    encoding: utf-8
+
+who_summary_region:
+  type: pandas.CSVDataset
+  filepath: data/07_reporting/who_summary_region.csv
+  save_args:
+    index: false
+    encoding: utf-8
+  load_args:
+    encoding: utf-8
+
+
+# ======================================================================
+# Rendered HTML Summary + Visualizations
+# ======================================================================
+
+who_reporting_html:
+  type: text.TextDataSet
+  filepath: data/08_reporting/who_summary.html
+  save_args:
+    encoding: utf-8
+
+who_heatmap:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/who_heatmap.png
+  versioned: true

@@ -1,0 +1,66 @@
+# =========================
+# Virtual Environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Python Cache / Compiled
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Kedro Data (do NOT commit data)
+# =========================
+data/01_raw/*
+data/02_intermediate/*
+data/03_primary/*
+data/04_feature/*
+data/05_model_input/*
+data/06_models/*
+data/07_model_output/*
+
+# Keep folder structure
+!data/**/.gitkeep
+
+# =========================
+# Kedro / Pipeline Artifacts
+# =========================
+logs/
+.dvc/
+.cache/
+
+# =========================
+# Jupyter / IPython
+# =========================
+.ipynb_checkpoints/
+.profile_default/
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+
+# =========================
+# Build / Packaging
+# =========================
+dist/
+build/
+*.egg-info/

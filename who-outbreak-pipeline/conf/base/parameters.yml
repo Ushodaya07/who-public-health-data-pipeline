@@ -1,0 +1,11 @@
+who:
+  # five WHO indicators (you already used these)
+  indicator_codes:
+    - WHOSIS_000001   # Life expectancy at birth, total (years)
+    - WHOSIS_000015   # Life expectancy at age 60
+    - WHOSIS_000003   # Life expectancy at birth, female
+    - WHOSIS_000006   # Life expectancy at birth, male
+    - WHOSIS_000002   # Healthy life expectancy at birth, total
+
+  raw_output_path: data/01_raw/who_combined.csv
+  summary_html: data/08_reporting/who_summary.html
